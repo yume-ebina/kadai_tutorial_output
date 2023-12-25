@@ -74,3 +74,6 @@ end
 
   # devise
   gem 'devise', '~> 4.2'
+
+# manage sort order
+  gem 'acts_as_list', '~> 1.1'

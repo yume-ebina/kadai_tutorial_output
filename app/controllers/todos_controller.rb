@@ -48,7 +48,7 @@ class TodosController < ApplicationController
     end
 
     def set_todo
-      @todo = @goal.todos.find_by(params[:id])
+      @todo = @goal.todos.find_by(id: params[:id])
     end
 
     def todo_params

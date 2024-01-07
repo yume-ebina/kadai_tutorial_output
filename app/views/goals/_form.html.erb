@@ -2,33 +2,35 @@
 <div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="goalModalLabel">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <%= form_with(model: goal, remote: true) do |form| %>
-    <div class="modal-header">
-      <h5 class="modal-title" id="goalModal"><%= "#{params[:action].camelize} #{goal.model_name.human}" %></h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <% if goal.errors.any? %>
-      <div id="error_explanation">
-
+    <%= form_with(model: goal, data: { turbo: true }) do |form| %>
+      <div class="modal-header">
+        <h5 class="modal-title" id="goalModal"><%= "#{params[:action].camelize} #{goal.model_name.human}" %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <form>
-        <div class="form-group">
-          <label for="recipient-name" class="col-form-label">Recipient:</label>
-          <input type="text" class="form-control" id="recipient-name">
-        </div>
-        <div class="form-group">
-          <label for="message-text" class="col-form-label">Message:</label>
-          <textarea class="form-control" id="message-text"></textarea>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Send message</button>
-    </div>
+      <div class="modal-body">
+        <% if goal.errors.any? %>
+          <div id="error_explanation">
+
+          </div>
+        <% end %>
+        
+          <div class="form-group">
+            <label for="title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" name="goal[title]">
+          </div>
+          <div class="form-group">
+            <label for="user_id" class="col-form-label">User_id:</label>
+            <textarea class="form-control" name="goal[user_id]"></textarea>
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </div>
+    <% end %>
   </div>
 </div>
 </div>

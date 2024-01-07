@@ -77,3 +77,5 @@ end
 
 # manage sort order
   gem 'acts_as_list', '~> 1.1'
+
+  gem 'turbolinks'

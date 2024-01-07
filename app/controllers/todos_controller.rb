@@ -38,7 +38,7 @@ class TodosController < ApplicationController
 
   # DELETE /todos/1
   def destroy
-    @todo.destroy!
+    @todo.destroy
   end
 
   private
